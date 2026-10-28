@@ -6,3 +6,12 @@ export const fetch = async () => {
   return rows;
 };
 
+//insert
+export const insert = async (book) => {
+  const [result] = await pool.query(
+    "INSERT INTO book (title, author) VALUES (?, ?)",
+    [book.title, book.author]
+  );
+
+  return result.insertId;
+}
