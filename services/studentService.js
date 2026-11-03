@@ -12,12 +12,9 @@ export const createStudent = async (student) => {
 }
 
 // update
-export const update = async (student) => {
-    const [result] = await pool.query (
-        "UPDATE student SET name= ?, srcode= ?, program= ? WHERE id= ? ",
-        [student.name, student.srcode, student.program, student.id]
-    );
-    return result.affectedRows;
+export const updateStudent = async (student) => {
+    const updateStudent = await studentModel.update(student);
+    return updateStudent;
 }
 
 // delete
